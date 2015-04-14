@@ -1,7 +1,6 @@
-# require 'grouper'
- require_relative 'date'
- require_relative 'key'
- require_relative 'grouper'
+ require './lib/date'
+ require './lib/key'
+ require './lib/grouper'
 
 class Encryptor
 
@@ -11,15 +10,14 @@ class Encryptor
     @divvy = Grouper.new(args[:divvy])
   end
   def recieve (chunked_message)
-    #@chunked_message = @slices
+    #@chunked_message = @chunks
     @chunked_message = chunked_message
     # return @chunked_message
   end
 
   def determine_rotation
-    @day.key_digits_from_date.
     @starter.rotator_values
-
+    # @day.offset
   end
 
 
@@ -27,9 +25,9 @@ class Encryptor
 end
 
 
-# rubix = Encryptor.new
-# day = Date.new
-# rubix.determine_rotation
+rubix = Encryptor.new({starter: 41521, divvy: "try ruby", day: "020315"})
+# day = Date.new("020315")
+puts rubix.determine_rotation
 
 
 

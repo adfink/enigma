@@ -23,12 +23,11 @@ class EncryptorTest < Minitest::Test
     assert_equal [["t","r","y"," "],["r","u","b","y"]], rubix.recieve(divvy.chunk)
   end
 
-  def test_it_can_determine_how_much_to_rotate_first_character
-    rubix = Encryptor.new({starter: 41521, divvy: "try ruby", day: "020315"})
-    day = Date.new("020315")
-    rubix.determine_rotation
-
-  end
+  # def test_it_can_determine_how_much_to_rotate_first_character
+  #   rubix = Encryptor.new({starter: 41521, divvy: "try ruby", day: "020315"})
+  #   # day = Date.new("020315")
+  #   assert_equal [23,32], rubix.determine_rotation
+  # end
 
 
 end

@@ -2,7 +2,7 @@ class Key
 
   attr_reader :key
 
-  def initialize(numbers=0)
+  def initialize(numbers = generate)
     @key = numbers
   end
 
@@ -19,8 +19,8 @@ class Key
 
     key_split = @key.to_s.chars
     pairs = []
-    first_count = 0
-    second_count = 1
+    first_count = 0                 #each_cons(2) {|a,b| puts #{a}#{b} }.map
+    second_count = 1                #keystring.chars.each_cons(2).map(&:join).map(&:to_i)
     4.times do
       pair_number = ""
       pair_number << key_split[first_count]
@@ -33,16 +33,20 @@ class Key
     return pairs
 
   end
-
-
-
-
-
-
-
-
 end
-starter = Key.new(41521)
 
+  # if there is a zero in the key? write a test to handle this edge case
+
+
+
+
+# factory method
+# def self.generate
+# keystring = (0..4).map { rand(9) }.join
+# Key.new(keystring)
+# end
+
+
+starter = Key.new(41521)
 p starter.rotator_values
 
