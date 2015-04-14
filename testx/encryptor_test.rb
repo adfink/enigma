@@ -30,8 +30,8 @@ class EncryptorTest < Minitest::Test
   end
 
   def test_it_can_encrypt_one_letter
-    skip
-    assert_equal "x", @rubix.input(@divvy.chunk).encrypt
+    alan = Encryptor.new("t", "41521","020315" )
+    assert_equal "4", alan.encrypt
   end
 
 end

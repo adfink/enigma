@@ -28,12 +28,17 @@ class Encryptor
   end
 
 
+  def encrypt
 
-  # def encrypt
-  #   input
-  # end
+    @rotation_numbers[0]
+     index_of_character =  @character_map.index("#{@chunked_message.flatten.pop}")
+     index_of_character + @rotation_numbers[0] % 39
+     new_character = @character_map[index_of_character + @rotation_numbers[0] % 39]
 
-  # puts @character_map
+    return new_character.to_s
+  end
+
+
 
 end
 
