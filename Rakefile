@@ -8,7 +8,7 @@ end
 
 
 Rake::TestTask.new do |t|
-  t.pattern = "test/**/*_test.rb"
+  t.pattern = "testx/**/*_test.rb"
 
   # t.libs << "test"   .... this does the same thing ....
   # t.test_files = FileList['test/*.rb']

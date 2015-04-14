@@ -1,33 +1,33 @@
- require './lib/date'
- require './lib/key'
- require './lib/grouper'
-
-class Encryptor
-
-  def initialize(args)
-    @day = Date.new(args[:day])
-    @starter = Key.new(args[:starter])
-    @divvy = Grouper.new(args[:divvy])
-  end
-  def recieve (chunked_message)
-    #@chunked_message = @chunks
-    @chunked_message = chunked_message
-    # return @chunked_message
-  end
-
-  def determine_rotation
-    @starter.rotator_values
-    # @day.offset
-  end
-
-
-
-end
-
-
-rubix = Encryptor.new({starter: 41521, divvy: "try ruby", day: "020315"})
-# day = Date.new("020315")
-puts rubix.determine_rotation
+#  require './lib/date'
+#  require './lib/key'
+#  require './lib/grouper'
+#
+# class Encryptor
+#
+#   def initialize(args)
+#     @day = Date.new(args[:day])
+#     @starter = Key.new(args[:starter])
+#     @divvy = Grouper.new(args[:divvy])
+#   end
+#   def recieve (chunked_message)
+#     #@chunked_message = @chunks
+#     @chunked_message = chunked_message
+#     # return @chunked_message
+#   end
+#
+#   def determine_rotation
+#     @starter.rotator_values
+#     # @day.offset
+#   end
+#
+#
+#
+# end
+#
+#
+# rubix = Encryptor.new({starter: 41521, divvy: "try ruby", day: "020315"})
+# # day = Date.new("020315")
+# puts rubix.determine_rotation
 
 
 
