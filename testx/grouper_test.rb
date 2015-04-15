@@ -25,7 +25,7 @@ class GrouperTest < Minitest::Test
 
 
   def test_it_can_group_a_message_into_four_element_parts
-    divvy = Grouper.new("Hi, I am a message")
-    assert_equal [["H","i",","," "],["I"," ","a","m"],[" ", "a", " ", "m"],["e", "s","s","a"],["g","e"]] , divvy.chunk
+    divvy = Grouper.new("hi, i am a message")
+    assert_equal [["h","i",","," "],["i"," ","a","m"],[" ", "a", " ", "m"],["e", "s","s","a"],["g","e"]] , divvy.chunk
   end
 end

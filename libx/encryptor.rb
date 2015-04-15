@@ -1,14 +1,15 @@
 require './libx/combine_offsets'
 require './libx/grouper'
-require './libx/key'
-require './libx/date_key'
-require './libx/combine_offsets'
+# require './libx/key'
+# require './libx/date_key'
+# require './libx/combine_offsets'
 
 
 class Encryptor
 
-  attr_reader :character_map
+  # attr_reader :character_map
   attr_reader :chunked_message
+  attr_reader :encrypted_string
 
   def initialize(message, key, date)
     @input_message = message
@@ -50,15 +51,21 @@ class Encryptor
 
   end
 
+  def outputs_for_decryptor
+    outputs = [encrypt, rotation_values]
+    return outputs
+  end
+
 
 
 end
 
 
 
-# rubix = Encryptor.new("Hello world. This is a sentence, that has been encrypted.", "41521", "020315")
-# p rubix.encrypt
-#
+rubix = Encryptor.new("Hello world. This is a sentence, that has been encrypted.", "41521", "020315")
+
+# p rubix.outputs_for_decryptor
+
 # output = "sv0.zo.b22syi w83oxfirmfp484yttzi w04ow03oq4p4m4yt6l0 t3j"
 
 

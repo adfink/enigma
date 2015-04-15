@@ -1,7 +1,9 @@
 class Grouper
   attr_reader :message
   def initialize(message = nil)
-    @message = message.downcase
+    unless message == nil
+      @message = message.downcase
+    end
   end
 
   def chunk
