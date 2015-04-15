@@ -18,7 +18,7 @@ class Encryptor
     @key_in = Key.new(key)
     @date_key_in = DateKey.new(date)
     @rotation_numbers = CombineOffsets.new(@key_in, @date_key_in).offsets
-    @character_map = ("a".."z").to_a + (0..9).to_a + [" ", ".", ","]
+    @character_map = ("a".."z").to_a + ["0", "1", "2","3", "4", "5","6", "7", "8","9"] + [" ", ".", ","]
   end
 
   def rotation_values
@@ -61,11 +61,11 @@ class Encryptor
 end
 
 
-
-rubix = Encryptor.new("Hello world. This is a sentence, that has been encrypted.", "41521", "020315")
-
+#
+# rubix = Encryptor.new("Hello world. This is a sentence, that has been encrypted.", "41521", "020315")
+#
 # p rubix.outputs_for_decryptor
-
+# Hello world. This is a sentence, that has been encrypted.
 # output = "sv0.zo.b22syi w83oxfirmfp484yttzi w04ow03oq4p4m4yt6l0 t3j"
 
 
