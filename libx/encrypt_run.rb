@@ -1,6 +1,8 @@
 require './libx/encryptor'
+require './libx/key'
+require './libx/date_key'
 
-handle = File.open("./libx/#{ARGV[0]}", "r")
+handle = File.open("#{ARGV[0]}", "r")
 # puts "#{ARGV[0]}"
 # puts "#{ARGV[1]}"
 
@@ -19,6 +21,9 @@ encrypted_message = rubix.encrypt
 writer = File.open("#{ARGV[1]}", "w")
 writer.write(encrypted_message)
 writer.close
+
+
+puts "Created #{ARGV[1]} with the key #{rubix.key_in.key} and date #{rubix.date_key_in.date_string}"
 
 #
 # def run

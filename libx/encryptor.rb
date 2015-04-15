@@ -8,7 +8,7 @@ require './libx/grouper'
 class Encryptor
 
   # attr_reader :character_map
-  attr_reader :chunked_message, :encrypted_string, :rotation_numbers
+  attr_reader :chunked_message, :encrypted_string, :rotation_numbers, :key_in, :date_key_in
 
   def initialize(message, key, date)
     @input_message = message
