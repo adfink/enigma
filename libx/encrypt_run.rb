@@ -6,10 +6,10 @@ handle = File.open("./libx/#{ARGV[0]}", "r")
 
 
 # handle.Read
-message = handle.read
+message = handle.read.chomp
 p message
 
-rubix = Encryptor.new("try ruby","41521","020315")
+rubix = Encryptor.new(message,"41521","020315")
 
 encrypted_message = rubix.encrypt
 
