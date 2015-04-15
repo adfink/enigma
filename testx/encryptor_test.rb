@@ -34,4 +34,20 @@ class EncryptorTest < Minitest::Test
     assert_equal "4", alan.encrypt
   end
 
+  def test_it_can_encrypt_two_letters
+    alan = Encryptor.new("tr", "41521","020315" )
+    assert_equal "48", alan.encrypt
+  end
+
+  def test_it_can_encrypt_four_letters
+    alan = Encryptor.new("try ", "41521","020315" )
+    assert_equal "48ax", alan.encrypt
+  end
+
+  def test_it_can_encrypt_five_letters
+    skip
+    alan = Encryptor.new("try r", "41521","020315" )
+    assert_equal "48axf", alan.encrypt
+  end
+
 end
