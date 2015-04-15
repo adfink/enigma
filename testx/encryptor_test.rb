@@ -45,9 +45,18 @@ class EncryptorTest < Minitest::Test
   end
 
   def test_it_can_encrypt_five_letters
-    skip
     alan = Encryptor.new("try r", "41521","020315" )
-    assert_equal "48axf", alan.encrypt
+    assert_equal "48ax2", alan.encrypt
+  end
+
+  def test_it_can_encrypt_eight_characters
+    alan = Encryptor.new("try ruby", "41521","020315" )
+    assert_equal "48ax2.ql", alan.encrypt
+  end
+
+  def test_it_can_encrypt_a_sentence
+    alan = Encryptor.new("try rubytry rubytry ruby", "41521","020315" )
+    assert_equal "48ax2.ql48ax2.ql48ax2.ql", alan.encrypt
   end
 
 end
