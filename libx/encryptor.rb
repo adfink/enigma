@@ -51,10 +51,10 @@ class Encryptor
 
   end
 
-  def outputs_for_decryptor
-    outputs = [encrypt, rotation_values]
-    return outputs
-  end
+  # def outputs_for_decryptor
+  #   outputs = [encrypt, rotation_values]
+  #   return outputs
+  # end
 
 
   def file_to_read
@@ -83,7 +83,6 @@ end
 
 rubix = Encryptor.new("Hello world. This is a sentence, that has been encrypted.", "41521", "020315")
 
-p rubix.outputs_for_decryptor
 p rubix.file_to_read
 p rubix.file_to_write
 
