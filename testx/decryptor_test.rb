@@ -18,27 +18,22 @@ class DecryptorTest < Minitest::Test
   # end
 
   def test_it_has_a_message_to_decrypt
-    @rubix = Encryptor.new("try ruby", "41521","020315" )
-    @solver = Decryptor.new(@rubix.outputs_for_decryptor)
-    assert_equal "48ax2.ql", @solver.garbled_message
+    @solver = Decryptor.new("48ax2.ql", "41521","020315")
+    assert_equal "48ax2.ql", @solver.input_message
   end
 
   def test_it_can_accept_offsets_values
-    @rubix = Encryptor.new("try ruby", "41521","020315" )
-    @solver = Decryptor.new(@rubix.outputs_for_decryptor)
-    assert_equal [50,17,54,26], @solver.rotator_values
+    @solver = Decryptor.new("48ax2.ql", "41521","020315")
+    assert_equal [50,17,54,26], @solver.rotation_numbers
   end
 
   def test_it_can_chunk_garbled_message_into_four_character_chunks
-    @rubix = Encryptor.new("try ruby", "41521","020315" )
-    @solver = Decryptor.new(@rubix.outputs_for_decryptor)
-    assert_equal [["4","8","a","x"],["2",".","q","l"]], @solver.chunk
+    @solver = Decryptor.new("48ax2.ql", "41521","020315")
+    assert_equal [["4","8","a","x"],["2",".","q","l"]], @solver.garbled_chunked_message
   end
 
   def test_it_can_decrypt_eight_characters
-    @rubix = Encryptor.new("try ruby", "41521","020315" )
-    @solver = Decryptor.new(@rubix.outputs_for_decryptor)
-    @solver.chunk
+    @solver = Decryptor.new("48ax2.ql", "41521","020315")
     assert_equal "try ruby", @solver.decrypt
   end
 

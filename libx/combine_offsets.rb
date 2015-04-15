@@ -9,9 +9,10 @@ class CombineOffsets
   end
 
   def offsets
-    x = @key.rotator_values.zip(date_key.offsets).map do |pair|
+    # x =
+      @key.rotator_values.zip(date_key.offsets).map do |pair|
       pair[0]+pair[1]
     end
-    return x
+    # return x
   end
 end

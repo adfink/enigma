@@ -57,29 +57,57 @@ class Encryptor
   end
 
 
+  def file_to_read
+    ARGV[0]
+  end
+
+  def file_to_write
+    ARGV[1]
+  end
+
+  def run
+    file = File.open(file_to_read, "r")
+    contents = file.read
+    encrypted_message = Encryptor.new(contents, @offset).encrypt
+
+    file_name = file_to_write
+    encrypted_file = File.open(file_name, "w")
+    encrypted_file.puts encrypted_message
+    encrypted_file.close
+
+    @printer.puts "Created '#{file_to_write}' with the key #{@key.key} and date #{@date.date}"
+  end
 
 end
 
 
-#
-# rubix = Encryptor.new("Hello world. This is a sentence, that has been encrypted.", "41521", "020315")
-#
-# p rubix.outputs_for_decryptor
+rubix = Encryptor.new("Hello world. This is a sentence, that has been encrypted.", "41521", "020315")
+
+p rubix.outputs_for_decryptor
+p rubix.file_to_read
+p rubix.file_to_write
+
+
 # Hello world. This is a sentence, that has been encrypted.
 # output = "sv0.zo.b22syi w83oxfirmfp484yttzi w04ow03oq4p4m4yt6l0 t3j"
 
-
-# require 'pry'; binding.pry    must select the appropriate element(array) within chunked message array ... every four times you increment the selector of the array within arrays
-
-# def encrypt
-#   @encrypted_string = ""
-#   count = 0
-#   @input_message.length.times do
-#     index_of_character =  @character_map.index(@chunked_message.flatten[count])
-#     new_character = @character_map[(index_of_character + @rotation_numbers[count]) % 39]
-#     @encrypted_string <<  new_character.to_s
-#     count +=1
-#   end
+# def run
+#   file = File.open(file_to_read, "r")
+#   contents = file.read
+#   encrypted_message = StringRotator.new(contents, @offset).encrypt
 #
-#   return @encrypted_string
+#   file_name = file_to_write
+#   encrypted_file = File.open(file_name, "w")
+#   encrypted_file.puts encrypted_message
+#   encrypted_file.close
+#
+#   @printer.puts "Created '#{file_to_write}' with the key #{@key.key} and date #{@date.date}"
+# end
+#
+# def file_to_read
+#   ARGV[0]
+# end
+#
+# def file_to_write
+#   ARGV[1]
 # end
