@@ -50,40 +50,17 @@ class Encryptor
 
   end
 
-  # def outputs_for_decryptor
-  #   outputs = [encrypt, rotation_values]
-  #   return outputs
-  # end
 
 
-  def file_to_read
-    ARGV[0]
-  end
-
-  def file_to_write
-    ARGV[1]
-  end
-
-  def run
-    file = File.open(file_to_read, "r")
-    contents = file.read
-    encrypted_message = Encryptor.new(contents, @offset).encrypt
-
-    file_name = file_to_write
-    encrypted_file = File.open(file_name, "w")
-    encrypted_file.puts encrypted_message
-    encrypted_file.close
-
-    @printer.puts "Created '#{file_to_write}' with the key #{@key.key} and date #{@date.date}"
-  end
 
 end
 
 
-rubix = Encryptor.new("Hello world. This is a sentence, that has been encrypted.", "41521", "020315")
+# rubix = Encryptor.new("hello world.", "58241", "041515")
+# p rubix.encrypt
 
-p rubix.file_to_read
-p rubix.file_to_write
+# p rubix.file_to_read
+# p rubix.file_to_write
 
 
 # Hello world. This is a sentence, that has been encrypted.

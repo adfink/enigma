@@ -40,3 +40,7 @@ puts "Created #{ARGV[1]} with the key #{rubix.key_in.key} and date #{rubix.date_
 # end
 
 # cat reverse shovel input
+
+
+# ruby ./libx/encrypt_run.rb message.txt encrypted.txt
+

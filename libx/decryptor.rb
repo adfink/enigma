@@ -8,7 +8,7 @@ require './libx/grouper'
 
 
 class Decryptor
-  attr_reader :input_message
+  attr_reader :input_message, :key_in, :date_key_in
   attr_reader :rotator_values
   attr_reader :garbled_chunked_message
   attr_reader :rotation_numbers
@@ -44,8 +44,8 @@ class Decryptor
 
   end
 
-solver = Decryptor.new("sv0.zo.b22syi w83oxfirmfp484yttzi w04ow03oq4p4m4yt6l0 t3j", "41521","020315")
-p solver.decrypt
+# solver = Decryptor.new("sv0.zo.b22syi w83oxfirmfp484yttzi w04ow03oq4p4m4yt6l0 t3j", "41521","020315")
+# p solver.decrypt
 
 
 
