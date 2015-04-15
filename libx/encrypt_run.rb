@@ -11,6 +11,7 @@ handle = File.open("#{ARGV[0]}", "r")
 message = handle.read.chomp
 p message
 
+# make sure it can generate it's own key and date
 rubix = Encryptor.new(message,"41521","020315")
 
 encrypted_message = rubix.encrypt
@@ -25,22 +26,14 @@ writer.close
 
 puts "Created #{ARGV[1]} with the key #{rubix.key_in.key} and date #{rubix.date_key_in.date_string}"
 
-#
-# def run
-#   file = File.open(file_to_read, "r")
-#   contents = file.read
-#   encrypted_message = StringRotator.new(contents, @offset).encrypt
-#
-#   file_name = file_to_write
-#   encrypted_file = File.open(file_name, "w")
-#   encrypted_file.puts encrypted_message
-#   encrypted_file.close
-#
-#   @printer.puts "Created '#{file_to_write}' with the key #{@key.key} and date #{@date.date}"
-# end
 
 # cat reverse shovel input
 
 
+
 # ruby ./libx/encrypt_run.rb message.txt encrypted.txt
 
+#
+# if File.exists? (filename)
+#   puts "#{filename} exists"
+# end

@@ -24,9 +24,10 @@ class Encryptor
     @rotation_numbers
   end
 
-  def parse_chunked_message
-    @chunked_message.size
-  end
+
+  # def parse_chunked_message
+  #   @chunked_message.size
+  # end
 
 
   def encrypt
@@ -66,23 +67,4 @@ end
 # Hello world. This is a sentence, that has been encrypted.
 # output = "sv0.zo.b22syi w83oxfirmfp484yttzi w04ow03oq4p4m4yt6l0 t3j"
 
-# def run
-#   file = File.open(file_to_read, "r")
-#   contents = file.read
-#   encrypted_message = StringRotator.new(contents, @offset).encrypt
-#
-#   file_name = file_to_write
-#   encrypted_file = File.open(file_name, "w")
-#   encrypted_file.puts encrypted_message
-#   encrypted_file.close
-#
-#   @printer.puts "Created '#{file_to_write}' with the key #{@key.key} and date #{@date.date}"
-# end
-#
-# def file_to_read
-#   ARGV[0]
-# end
-#
-# def file_to_write
-#   ARGV[1]
-# end
+

@@ -12,6 +12,7 @@ handle = File.open("#{ARGV[0]}", "r")
 garbled_message = handle.read.chomp
 p garbled_message
 
+# make sure it can use it's own key, or actually take it from command line instead of hard coded here
 solver = Decryptor.new(garbled_message,"41521","020315")
 
 decrypted_message = solver.decrypt
@@ -30,3 +31,10 @@ puts "Created #{ARGV[1]} with the key #{solver.key_in.key} and date #{solver.dat
 
 
 # ruby ./libx/decrypt_run.rb encrypted.txt decrypted.txt
+
+# if File.exists? (filename)
+# #   puts "#{filename} exists"
+# # end
+
+
+

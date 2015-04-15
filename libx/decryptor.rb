@@ -49,31 +49,3 @@ class Decryptor
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-#
-#   attr_reader :character_map
-#   attr_reader :chunked_message
-#
-#   def initialize(message, key, date)
-#     @input_message = message
-#     @divvy = Grouper.new(message)
-#     @chunked_message = @divvy.chunk
-#     @key_in = Key.new(key)
-#     @date_key_in = DateKey.new(date)
-#     @rotation_numbers = CombineOffsets.new(@key_in, @date_key_in).offsets
-#     @character_map = ("a".."z").to_a + (0..9).to_a + [" ", ".", ","]
-#   end
-#
-#
-# end
-
