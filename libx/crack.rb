@@ -3,7 +3,7 @@ require 'byebug'
 
 class Crack
   attr_accessor :key
-  attr_reader :garbled_message, :modified_message
+  attr_reader :garbled_message, :modified_message, :date
   def initialize(date, message)
     @date = date
     @key = '00000'
@@ -30,8 +30,8 @@ class Crack
 end
 
 
-# crack = Crack.new( "48ax2.ql48ax2.ql48ax2.ql" ,"020315")
-crack = Crack.new("020315", "6r58utrosr0tsl")
-crack.check_key_values
-p crack.modified_message
+# # crack = Crack.new( "48ax2.ql48ax2.ql48ax2.ql" ,"020315")
+# crack = Crack.new("020315", "6r58utrosr0tsl")
+# crack.check_key_values
+# p crack.modified_message
 
