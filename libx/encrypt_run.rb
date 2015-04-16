@@ -1,6 +1,7 @@
 require './libx/cipher'
 require './libx/key'
 require './libx/date_key'
+require 'byebug'
 
 handle = File.open("#{ARGV[0]}", "r")
 # puts "#{ARGV[0]}"
@@ -12,11 +13,12 @@ message = handle.read.chomp
 p message
 
 # make sure it can generate it's own key and date
-rubix = Encryptor.new(message,"41521","020315")
+cipher = Cipher.new("hey hi how are you", "41521","020315" )
+# assert_equal "48ax2", cipher.encrypt
+# cipher= Cipher.new("hey hi how are you here's a message lets encrypt this shit" ,"41521","020315")
 
-encrypted_message = rubix.encrypt
-
-# p encrypted_message
+encrypted_message = cipher.encrypt
+p encrypted_message
 
 
 writer = File.open("#{ARGV[1]}", "w")
@@ -24,7 +26,7 @@ writer.write(encrypted_message)
 writer.close
 
 
-puts "Created #{ARGV[1]} with the key #{rubix.key_in.key} and date #{rubix.date_key_in.date_string}"
+puts "Created #{ARGV[1]} with the key #{cipher.key_in.key} and date #{cipher.date_key_in.date_string}"
 
 
 # cat reverse shovel input

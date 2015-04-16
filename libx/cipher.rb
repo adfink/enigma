@@ -8,7 +8,7 @@ require 'byebug'
 class Cipher
   attr_reader :sliced_message, :encrypted_string, :rotation_numbers, :key_in, :date_key_in
 
-  def initialize(message, key, date)
+  def initialize(message, key = @Key.generate, date = Time.now.strftime("%m%d%y"))
     @sliced_message   = MessageSlicer.new(message).chunk
     @key_in           = Key.new(key)
     @date_key_in      = DateKey.new(date)
@@ -27,7 +27,6 @@ class Cipher
 
   def decrypt
     @sliced_message.map do |slice|
-      # byebug
       index_values_of_current_slice_in_character_map(slice).map.with_index do |charmap_position, index|
         charmap_position - (@rotation_numbers[index] % 39)
       end.map {|i| @character_map[i]}
@@ -43,3 +42,5 @@ class Cipher
   end
 
 end
+
+

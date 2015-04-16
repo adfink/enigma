@@ -12,11 +12,12 @@ require './libx/crack'
 
 class CrackTest < Minitest::Test
   def test_there_is_a_cracker
-    turing = Crack.new
+    crack = Crack.new("020315","try rubytry rubytry ruby" )
   end
 
-  def test_that_the_cracker_can_accept_an_encrypted_message
-    
+  def test_it_can_encrypt_a_sentence
+    cipher = Cipher.new("try rubytry rubytry ruby", "41521","020315" )
+    assert_equal "48ax2.ql48ax2.ql48ax2.ql", cipher.encrypt
   end
 
 end
