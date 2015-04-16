@@ -22,11 +22,16 @@ class EncryptorTest < Minitest::Test
   end
 
   def test_it_can_accept_offsets_values
-    assert_equal [50,17,54,26], @rubix.rotation_values
+    assert_equal [50,17,54,26], @rubix.rotation_numbers
   end
 
   def test_it_can_accept_a_message_to_encrypt
-    assert_equal [["t","r","y"," "],["r","u","b","y"]], @rubix.chunked_message
+    assert_equal [["t","r","y"," "],["r","u","b","y"]], @rubix.sliced_message
+  end
+
+  def test_it_can_encrypt_one_letter
+    alan = Encryptor.new("t", "41521","020315" )
+    assert_equal "4", alan.encrypt
   end
 
   def test_it_can_encrypt_one_letter
@@ -57,6 +62,11 @@ class EncryptorTest < Minitest::Test
   def test_it_can_encrypt_a_sentence
     alan = Encryptor.new("try rubytry rubytry ruby", "41521","020315" )
     assert_equal "48ax2.ql48ax2.ql48ax2.ql", alan.encrypt
+  end
+
+  def test_it_has_a_message_to_decrypt
+    @solver = Encryptor.new("48ax2.ql", "41521","020315")
+    assert_equal "try ruby", @solver.decrypt
   end
 
 end

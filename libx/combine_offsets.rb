@@ -1,5 +1,6 @@
 require './libx/key'
 require './libx/date_key'
+# require './libx/encryptor'
 
 class CombineOffsets
   attr_reader :key, :date_key
@@ -9,7 +10,7 @@ class CombineOffsets
   end
 
   def offsets
-    # x =
+# byebug
       @key.rotator_values.zip(date_key.offsets).map do |pair|
       pair[0]+pair[1]
     end

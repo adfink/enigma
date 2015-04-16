@@ -8,7 +8,6 @@ require './libx/date_key'
 handle = File.open("#{ARGV[0]}", "r")
 # puts "#{ARGV[0]}"
 # puts "#{ARGV[1]}"
-# handle.Read
 garbled_message = handle.read.chomp
 p garbled_message
 
