@@ -7,7 +7,6 @@ class Key
 
   def generate
     @key = (0..4).map { rand(9) }.join
-
   end
 
   def rotator_values

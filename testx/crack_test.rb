@@ -15,4 +15,8 @@ class CrackTest < Minitest::Test
     turing = Crack.new
   end
 
+  def test_that_the_cracker_can_accept_an_encrypted_message
+    
+  end
+
 end

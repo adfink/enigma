@@ -37,4 +37,9 @@ class Cipher
   def index_values_of_current_slice_in_character_map(current_slice)
     current_slice.map.with_index { | letter, index |  @character_map.index(current_slice[index])}
   end
+
+  def crack
+
+  end
+
 end

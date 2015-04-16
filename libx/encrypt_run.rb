@@ -1,4 +1,4 @@
-require './libx/encryptor'
+require './libx/cipher'
 require './libx/key'
 require './libx/date_key'
 
