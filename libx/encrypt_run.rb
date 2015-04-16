@@ -13,7 +13,7 @@ message = handle.read.chomp
 p message
 
 # make sure it can generate it's own key and date
-cipher = Cipher.new("hey hi how are you", "41521","020315" )
+cipher = Cipher.new("hey hi how are you" )
 # assert_equal "48ax2", cipher.encrypt
 # cipher= Cipher.new("hey hi how are you here's a message lets encrypt this shit" ,"41521","020315")
 

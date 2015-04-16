@@ -8,7 +8,7 @@ require 'byebug'
 class Cipher
   attr_reader :sliced_message, :encrypted_string, :rotation_numbers, :key_in, :date_key_in
 
-  def initialize(message, key = @Key.generate, date = Time.now.strftime("%m%d%y"))
+  def initialize(message, key = Key.new.key, date = Time.now.strftime("%m%d%y"))
     @sliced_message   = MessageSlicer.new(message).chunk
     @key_in           = Key.new(key)
     @date_key_in      = DateKey.new(date)
