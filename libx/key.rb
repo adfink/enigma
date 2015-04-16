@@ -15,6 +15,3 @@ class Key
 
 end
 
-#
-# starter = Key.new(41521)
-# p starter.rotator_values

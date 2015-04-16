@@ -5,10 +5,10 @@ class Crack
   attr_accessor :key
   attr_reader :garbled_message, :modified_message, :date
   def initialize(date, message)
-    @date = date
-    @key = '00000'
+    @date             = date
+    @key              = '00000'
     @modified_message = ""
-    @garbled_message = message
+    @garbled_message  = message
 
   end
 
@@ -17,7 +17,9 @@ class Crack
       cipher = Cipher.new(@garbled_message, @key, @date)
       @modified_message = cipher.decrypt
       @key = (@key.to_i + 1).to_s.rjust(5, "0")
-    end
+      @character_map    = [*("a".."z"), *("0".."9"), * " ", ".", ","]
+      p @character_map.sample * ((@key[0].to_i*15) + (@key[1].to_i*5))
+        end
     @key.rjust(5,"0")
   end
 
@@ -27,11 +29,7 @@ class Crack
       @modified_message[-7..-1] == matching_phrase
     end
 
+
+
 end
-
-
-# # crack = Crack.new( "48ax2.ql48ax2.ql48ax2.ql" ,"020315")
-# crack = Crack.new("020315", "6r58utrosr0tsl")
-# crack.check_key_values
-# p crack.modified_message
 

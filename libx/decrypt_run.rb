@@ -17,9 +17,6 @@ puts "Created #{ARGV[1]} with the key #{solver.key_in.key} and date #{solver.dat
 
 # ruby ./libx/decrypt_run.rb encrypted.txt decrypted.txt
 
-# if File.exists? (filename)
-# #   puts "#{filename} exists"
-# # end
 
 
 
